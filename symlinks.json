@@ -1,6 +1,7 @@
 {
-    "i3status.conf": "~/.i3status.conf",
-    "i3.conf": "~/.config/i3/config",
-    "ssh.conf": "~/.ssh/config",
-    "rofi.conf": "~/.config/rofi/config"
+    "i3/i3status.conf": "~/.i3status.conf",
+    "i3/i3.conf": "~/.config/i3/config",
+    "ssh/ssh.conf": "~/.ssh/config",
+    "rofi/rofi.conf": "~/.config/rofi/config",
+    "conky/conkyrc": "~/.conkyrc"
 }

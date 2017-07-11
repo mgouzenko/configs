@@ -27,7 +27,8 @@ def main(argv):
             if os.path.exists(dest_abs_path):
                 dest_name = os.path.basename(dest_abs_path)
                 new_location = os.path.join(old_config_dir, dest_name)
-                logging.info("Creating backup:\t%s --> %s", dest_abs_path, new_location)
+                logging.info(
+                    "Creating backup:\t%s --> %s", dest_abs_path, new_location)
                 shutil.move(dest_abs_path, new_location)
 
             logging.info(
