@@ -3,5 +3,6 @@
     "i3/i3.conf": "~/.config/i3/config",
     "ssh/ssh.conf": "~/.ssh/config",
     "rofi/rofi.conf": "~/.config/rofi/config",
-    "conky/conkyrc": "~/.conkyrc"
+    "conky/conkyrc": "~/.conkyrc",
+    "zsh/zshrc": "~/.zshrc"
 }
