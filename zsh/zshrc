@@ -1,26 +1,29 @@
-# Load antigen packages
+#################### ANTIGEN #################### 
 source /home/mgouzenko/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle command-not-found
 antigen bundle sudo
 antigen bundle battery
+
+# zsh-async is required for the pure theme
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
+
 antigen bundle web-search
 antigen bundle python
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
-# Prompt
+#################### PROMPT #################### 
 # TODO: Fix this to work with more than 10 jobs
 RPROMPT='$(if jobs | wc -l | grep 0 > /dev/null; then : ; else jobs | wc -l | xargs; fi)'
 
-# Environment variables
+#################### ENVIRONMENT VARIABLES #################### 
 export MAIL='/var/mail/mgouzenko'
 export TERM=xterm-256color
 
-# Aliases
+#################### ALIASES #################### 
 alias ls='ls --color=auto'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
