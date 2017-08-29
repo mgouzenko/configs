@@ -20,13 +20,13 @@ setup() {
         # TODO: The following command is from arandr, but this is really hacky because
         # it doesn't work unless the xrandr command above runs. I think it's
         # got to do with the "canvas" expanding due to the --panning flags.
-        xrandr --output VIRTUAL1 --off
-               --output eDP1 --primary --mode 2880x1800 --pos 3840x0 --rotate normal
-               --output DP1 --off
-               --output HDMI3 --mode 1920x1080 --pos 6720x0 --rotate normal
-               --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal
-               --output HDMI1 --off
-               --output VGA1 --off
+        xrandr --output VIRTUAL1 --off \
+               --output eDP1 --primary --mode 2880x1800 --pos 3840x0 --rotate normal \
+               --output DP1 --off \
+               --output HDMI3 --mode 1920x1080 --pos 6720x0 --rotate normal \
+               --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal \
+               --output HDMI1 --off \
+               --output VGA1 --off \
                --output DP2 --off
     elif is_connected "$XRANDR_OUTPUT" "eDP1"; then
         echo "Single monitor setup";
