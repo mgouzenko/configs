@@ -1,0 +1,4 @@
+- name: Set up dev environment
+  hosts: local
+  roles:
+    - role: base-environment
