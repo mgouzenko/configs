@@ -15,4 +15,7 @@ if ! [ -x "$(command -v ansible)" ]; then
   sudo apt-get -y install ansible
 fi
 
-ansible-playbook -i $CONFIGS/ansible/hosts $CONFIGS/ansible/install.yml --ask-become-pass --ssh-extra-args='-o "StrictHostKeyChecking no"'
+ansible-playbook -i $CONFIGS/ansible/hosts $CONFIGS/ansible/install.yml \
+	--ask-become-pass \
+	--ssh-extra-args='-o "StrictHostKeyChecking no"' \
+	--extra-vars="dotfiles=$CONFIGS/config"
