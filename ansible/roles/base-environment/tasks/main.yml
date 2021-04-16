@@ -31,21 +31,16 @@
     name: "{{ user }}"
     shell: /usr/bin/zsh
 
+- name: Create .zsh directory
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.zsh"
+    state: directory
+
 - name: Redirect ZDOTDIR
   copy:
     dest: "{{ lookup('env', 'HOME') }}/.zshenv"
     content: |
       ZDOTDIR=$HOME/.config/zsh
-
-- name: Download oh-my-zsh installer
-  get_url:
-    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-    dest: /tmp/ohmyzsh_install.sh	
-
-- name: Install oh-my-zsh
-  script:
-    cmd: /tmp/ohmyzsh_install.sh
-    creates: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
 
 - name: Install antigen
   get_url:

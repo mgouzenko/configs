@@ -1,15 +1,15 @@
 #################### ANTIGEN #################### 
 source $HOME/antigen.zsh
 fpath+=$HOME/.zsh/pure
+
+# zsh-async is required for the pure theme
+antigen bundle mafredri/zsh-async
+
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle command-not-found
 antigen bundle sudo
 antigen bundle battery
-
-# zsh-async is required for the pure theme
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
 
 antigen bundle web-search
 antigen bundle python
