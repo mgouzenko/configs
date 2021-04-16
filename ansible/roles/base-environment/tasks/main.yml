@@ -6,3 +6,13 @@
   become_user: root
   become_method: sudo
   loop: "{{ packages }}"
+
+- name: Create neovim autoload directory
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload"
+    state: directory
+
+- name: Install vim-plug
+  get_url:
+    url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"
