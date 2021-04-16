@@ -1,5 +1,6 @@
 #################### ANTIGEN #################### 
-source /home/mgouzenko/antigen/antigen.zsh
+source $HOME/antigen.zsh
+fpath+=$HOME/.zsh/pure
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle command-not-found
@@ -14,6 +15,9 @@ antigen bundle web-search
 antigen bundle python
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
+
+autoload -U promptinit; promptinit
+prompt pure
 
 #################### PROMPT #################### 
 # TODO: Fix this to work with more than 10 jobs

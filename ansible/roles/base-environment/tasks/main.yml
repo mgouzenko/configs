@@ -22,3 +22,17 @@
     path: "{{ lookup('env', 'HOME') }}/.config"
     src: "{{ dotfiles }}" 
     state: link
+
+- name: Change shell to zsh
+  become: yes
+  become_user: root
+  become_method: sudo
+  user:
+    name: "{{ user }}"
+    shell: /usr/bin/zsh
+
+- name: Redirect ZDOTDIR
+  copy:
+    dest: "{{ lookup('env', 'HOME') }}/.zshenv"
+    content: |
+      ZDOTDIR=$HOME/.config/zsh
