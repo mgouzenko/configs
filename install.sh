@@ -8,4 +8,4 @@ ansible-playbook -i $CONFIGS/ansible/hosts $CONFIGS/ansible/install.yml \
 	--ssh-extra-args='-o "StrictHostKeyChecking no"' \
 	--extra-vars="dotfiles=$CONFIGS/config user=$USER"
 
-zsh && exit 0
+exec zsh
