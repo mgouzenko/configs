@@ -1,16 +1,26 @@
+- name: Add neovim stable repository from PPA
+  become: yes
+  become_user: root
+  become_method: sudo
+  apt_repository:
+    repo: ppa:neovim-ppa/stable
+
 - name: Install system packages with apt
   apt:
     name: "{{ item }}"
     update_cache: yes
+    state: latest
   become: yes
   become_user: root
-  become_method: sudo
   loop: "{{ packages }}"
 
 - name: Create neovim autoload directory
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload"
     state: directory
+
+- name: Install nvim plugins
+  shell: nvim --headless +PlugInstall +qall
 
 - name: Install vim-plug
   get_url:

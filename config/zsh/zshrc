@@ -2,36 +2,32 @@
 source $HOME/antigen.zsh
 fpath+=$HOME/.zsh/pure
 
+antigen use oh-my-zsh
+
 # zsh-async is required for the pure theme
 antigen bundle mafredri/zsh-async
 
-antigen use oh-my-zsh
 antigen bundle git
 antigen bundle command-not-found
 antigen bundle sudo
 antigen bundle battery
-
-antigen bundle web-search
 antigen bundle python
 antigen bundle zsh-users/zsh-syntax-highlighting
+
 antigen apply
 
 autoload -U promptinit; promptinit
 prompt pure
 
 #################### PROMPT #################### 
-# TODO: Fix this to work with more than 10 jobs
-RPROMPT='$(if jobs | wc -l | grep 0 > /dev/null; then : ; else jobs | wc -l | xargs; fi)'
+RPROMPT='$(jobs | wc -l | xargs | sed "s/^0$//g" )'
 
 #################### ENVIRONMENT VARIABLES #################### 
-export MAIL='/var/mail/mgouzenko'
 export TERM=xterm-256color
 
 #################### ALIASES #################### 
 alias ls='ls --color=auto'
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 alias gdb='gdb -q'
-alias tunnel='autossh -NT -M 10984 -o "PubkeyAuthentication=yes" -o "PasswordAuthentication=no" -i ~/.ssh/persistent_tunnel -R 6666:localhost:22 root@45.55.202.67'
-alias src='source ~/.zshrc'
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias vim='nvim'
+alias v='nvim'
