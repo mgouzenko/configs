@@ -34,3 +34,5 @@ alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir
 alias vim='nvim'
 alias v='nvim'
 alias weather='curl "http://wttr.in/NYC?1F"'
+
+banner Welcome z3nk0
