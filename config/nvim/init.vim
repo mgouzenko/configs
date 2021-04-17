@@ -12,7 +12,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'haya14busa/incsearch.vim'
 Plug 'SirVer/ultisnips'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+" }}}
+
+" {{{ vim-airline/vim-airline-themes
+let g:airline_theme='deus'
 " }}}
 
 " SirVer/ultisnips {{{
