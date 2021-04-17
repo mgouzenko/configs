@@ -19,9 +19,6 @@
     path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload"
     state: directory
 
-- name: Install nvim plugins
-  shell: nvim --headless +PlugInstall +qall
-
 - name: Install vim-plug
   get_url:
     url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
@@ -30,8 +27,11 @@
 - name: Create .config symlink
   file:
     path: "{{ lookup('env', 'HOME') }}/.config"
-    src: "{{ dotfiles }}" 
+    src: "{{ dotfiles }}"
     state: link
+
+- name: Install nvim plugins
+  shell: nvim --headless +PlugInstall +qall
 
 - name: Change shell to zsh
   become: yes
@@ -40,6 +40,7 @@
   user:
     name: "{{ user }}"
     shell: /usr/bin/zsh
+    generate_ssh_key: yes
 
 - name: Create .zsh directory
   file:
@@ -61,12 +62,3 @@
   git:
     repo: https://github.com/sindresorhus/pure.git
     dest: "{{ lookup('env', 'HOME') }}/.zsh/pure"
-
-- name: Create .ssh directory
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.ssh"
-    state: directory
-
-- name: Generate SSH keys
-  community.crypto.openssh_keypair:
-    path: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"

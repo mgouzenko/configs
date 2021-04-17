@@ -15,6 +15,4 @@ if ! [ -x "$(command -v ansible)" ]; then
   sudo apt-get -y install ansible
 fi
 
-ansible-galaxy collection install community.crypto
-
 $CONFIGS/install.sh
