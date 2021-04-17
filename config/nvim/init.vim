@@ -93,8 +93,8 @@ inoremap <c-a> <Esc>^i
 inoremap <c-e> <Esc>A
 
 " Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
+nnoremap p ]p
+nnoremap P ]P
 
 " Move code blocks up and down visually
 vnoremap <c-j> :m '>+1<CR>gv=gv
@@ -107,7 +107,7 @@ set autoindent
 set tabstop=8
 set softtabstop=4
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 set backspace=2
 set encoding=utf-8
 set sidescrolloff=15

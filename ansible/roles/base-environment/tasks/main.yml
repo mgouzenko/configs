@@ -61,3 +61,7 @@
   git:
     repo: https://github.com/sindresorhus/pure.git
     dest: "{{ lookup('env', 'HOME') }}/.zsh/pure"
+
+- name: Generate SSH keys
+  community.crypto.openssh_keypair:
+    path: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"

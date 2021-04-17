@@ -2,4 +2,5 @@ packages:
   - neovim
   - tree
   - zsh
-  - zsh-antigen
+  - htop
+  - ranger
