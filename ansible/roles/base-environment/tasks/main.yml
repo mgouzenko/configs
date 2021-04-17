@@ -33,7 +33,7 @@
 - name: Install nvim plugins
   shell: nvim --headless +PlugInstall +qall
 
-- name: Change shell to zsh
+- name: Change shell to zsh and generate ssh key
   become: yes
   become_user: root
   become_method: sudo
