@@ -9,3 +9,6 @@ packages:
   - ncdu
   - tldr
   - sysvbanner
+  - i3
+  - python3-pip
+  - rofi
