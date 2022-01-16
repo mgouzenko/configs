@@ -10,8 +10,10 @@ if [ -e "$CONFIGS" ]; then
   exit 1
 fi
 
-git clone https://www.github.com/mgouzenko/configs.git $CONFIGS
 sudo apt-get install -y software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt-get -y install ansible
+sudo apt-get -y install ansible git
+
+git clone https://www.github.com/mgouzenko/configs.git $CONFIGS
+
 $CONFIGS/install.sh
