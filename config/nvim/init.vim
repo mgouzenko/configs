@@ -12,6 +12,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'haya14busa/incsearch.vim'
 Plug 'SirVer/ultisnips'
+Plug 'neovim/nvim-lspconfig'
 " Disabled due to performance issues
 " Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'

@@ -1,4 +1,4 @@
-#################### ANTIGEN #################### 
+#################### ANTIGEN ####################
 source $HOME/antigen.zsh
 fpath+=$HOME/.zsh/pure
 
@@ -21,13 +21,17 @@ antigen apply
 autoload -U promptinit; promptinit
 prompt pure
 
-#################### PROMPT #################### 
+#################### PROMPT ####################
 RPROMPT='$(jobs | wc -l | xargs | sed "s/^0$//g" )'
 
-#################### ENVIRONMENT VARIABLES #################### 
+#################### ENVIRONMENT VARIABLES ####################
 export TERM=xterm-256color
 
-#################### ALIASES #################### 
+# Programs like git will look at these to determine the default editor.
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+#################### ALIASES ####################
 alias ls='ls --color=auto'
 alias gdb='gdb -q'
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'

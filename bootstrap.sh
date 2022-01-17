@@ -10,11 +10,8 @@ if [ -e "$CONFIGS" ]; then
   exit 1
 fi
 
-sudo apt-get install -y software-properties-common
-sudo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt-get -y install git python3 python3-pip
+sudo apt-get install -y software-properties-common git python3 python3-pip
 python3 -m pip install ansible
-
 git clone https://www.github.com/mgouzenko/configs.git $CONFIGS
 
 $CONFIGS/install.sh
