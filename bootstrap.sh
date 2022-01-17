@@ -12,7 +12,7 @@ fi
 
 sudo apt-get install -y software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt-get -y install git
+sudo apt-get -y install git python3
 python3 -m pip install --user ansible
 
 git clone https://www.github.com/mgouzenko/configs.git $CONFIGS
