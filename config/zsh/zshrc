@@ -36,8 +36,7 @@ alias vim='nvim'
 alias v='nvim'
 alias weather='curl "http://wttr.in/NYC?1F"'
 
-
-################# NVM #####################
+################# NVM (Node Version Manager) #####################
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 

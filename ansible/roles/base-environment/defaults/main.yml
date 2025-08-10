@@ -1,4 +1,5 @@
 packages:
+  - polybar
   - kitty
   - curl
   - tree
@@ -29,3 +30,5 @@ config_links:
     dest: ".config/kitty/dracula.conf"
   - src: "kitty/diff.conf"
     dest: ".config/kitty/diff.conf"
+  - src: "polybar/launch.sh"
+    dest: ".config/polybar/launch.sh"

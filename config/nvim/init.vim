@@ -13,6 +13,15 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'haya14busa/incsearch.vim'
 Plug 'SirVer/ultisnips'
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+
+let mapleader = ","
+
+" {{{ nvim-telescope/telescope.nvim
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+" }}}
+
 " Disabled due to performance issues
 " Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
