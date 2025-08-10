@@ -1,4 +1,5 @@
 packages:
+  - kitty
   - curl
   - tree
   - zsh
@@ -22,3 +23,9 @@ config_links:
     dest: ".config/i3/config"
   - src: "i3/i3status.conf"
     dest: ".config/i3/i3status.conf"
+  - src: "kitty/kitty.conf"
+    dest: ".config/kitty/kitty.conf"
+  - src: "kitty/dracula.conf"
+    dest: ".config/kitty/dracula.conf"
+  - src: "kitty/diff.conf"
+    dest: ".config/kitty/diff.conf"
