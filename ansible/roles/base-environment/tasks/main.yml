@@ -16,7 +16,7 @@
 
 - name: Create neovim autoload directory
   file:
-    path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload"
+    path: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload"
     state: directory
 
 - name: Change shell to zsh and generate ssh key
@@ -28,71 +28,64 @@
     shell: /usr/bin/zsh
     generate_ssh_key: yes
 
-- name: Create nvim config directory
+- name: Create config directories
   file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim"
+    path: "{{ ansible_env.HOME }}/{{ item.dest | dirname }}"
     state: directory
+  loop: "{{ config_links }}"
 
-- name: Link nvim config
+- name: Link config files
   file:
-    src: "{{ dotfiles }}/nvim/init.vim"
-    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.vim"
+    src: "{{ dotfiles }}/{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/{{ item.dest }}"
     state: link
+  loop: "{{ config_links }}"
 
 - name: Install vim-plug
   get_url:
     url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"
+    dest: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim"
 
 - name: Install nvim plugins
   shell: nvim --headless +PlugInstall +qall
 
-- name: Create zsh config directory
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.config/zsh"
-    state: directory
-
-- name: Link zsh config
-  file:
-    src: "{{ dotfiles }}/zsh/zshrc"
-    dest: "{{ lookup('env', 'HOME') }}/.config/zsh/.zshrc"
-    state: link
 
 - name: Redirect ZDOTDIR
   copy:
-    dest: "{{ lookup('env', 'HOME') }}/.zshenv"
+    dest: "{{ ansible_env.HOME }}/.zshenv"
     content: |
       ZDOTDIR=$HOME/.config/zsh
 
 - name: Install antigen
   get_url:
     url: https://git.io/antigen
-    dest: "{{ lookup('env', 'HOME') }}/.config/zsh/antigen.zsh"
+    dest: "{{ ansible_env.HOME }}/.config/zsh/antigen.zsh"
 
 - name: Install pure prompt
   git:
     repo: https://github.com/sindresorhus/pure.git
-    dest: "{{ lookup('env', 'HOME') }}/.config/zsh/pure"
+    dest: "{{ ansible_env.HOME }}/.config/zsh/pure"
 
 - name: Install NVM
   shell: >
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
   args:
     executable: /bin/bash
-    chdir: "{{ lookup('env', 'HOME') }}"
-    creates: "{{ lookup('env', 'HOME') }}/.nvm/nvm.sh"
+    chdir: "{{ ansible_env.HOME }}"
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
 
 - name: Install Node.js
-  shell: ". {{ lookup('env', 'HOME') }}/.nvm/nvm.sh && nvm install node"
+  shell: ". {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm install node"
   args:
     creates: "{{ ansible_env.HOME }}/.nvm/versions/node"
     chdir: "{{ ansible_env.HOME }}"
     executable: /bin/bash
 
 - name: Install Claude Code CLI
-  shell: ". {{ lookup('env', 'HOME') }}/.nvm/nvm.sh && npm install -g @anthropic-ai/claude"
+  shell: ". {{ ansible_env.HOME }}/.nvm/nvm.sh && npm install -g @anthropic-ai/claude"
   args:
     executable: /bin/bash
-    chdir: "{{ lookup('env', 'HOME') }}"
+    chdir: "{{ ansible_env.HOME }}"
     creates: "{{ ansible_env.HOME }}/.nvm/versions/node/*/bin/claude"
+
 

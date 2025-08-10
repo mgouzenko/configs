@@ -12,3 +12,11 @@ packages:
   - i3
   - python3-pip
   - rofi
+
+config_links:
+  - src: "nvim/init.vim"
+    dest: ".config/nvim/init.vim"
+  - src: "zsh/zshrc"
+    dest: ".config/zsh/.zshrc"
+  - src: "i3/i3.conf"
+    dest: ".config/i3/config"
