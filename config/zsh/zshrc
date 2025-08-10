@@ -1,6 +1,6 @@
 #################### ANTIGEN ####################
-source $HOME/antigen.zsh
-fpath+=$HOME/.zsh/pure
+source $HOME/.config/zsh/antigen.zsh
+fpath+=$HOME/.config/zsh/pure
 
 antigen use oh-my-zsh
 

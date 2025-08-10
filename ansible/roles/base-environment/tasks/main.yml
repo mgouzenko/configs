@@ -1,10 +1,3 @@
-- name: Add neovim stable repository from PPA
-  become: yes
-  become_user: root
-  become_method: sudo
-  apt_repository:
-    repo: ppa:neovim-ppa/stable
-
 - name: Install system packages with apt
   apt:
     name: "{{ item }}"
@@ -38,7 +31,7 @@
 
 - name: Create .zsh directory
   file:
-    path: "{{ lookup('env', 'HOME') }}/.zsh"
+    path: "{{ lookup('env', 'HOME') }}/.config/zsh"
     state: directory
 
 - name: Redirect ZDOTDIR
@@ -50,9 +43,9 @@
 - name: Install antigen
   get_url:
     url: https://git.io/antigen
-    dest: "{{ lookup('env', 'HOME') }}/.zsh/antigen.zsh"
+    dest: "{{ lookup('env', 'HOME') }}/.config/zsh/antigen.zsh"
 
 - name: Install pure prompt
   git:
     repo: https://github.com/sindresorhus/pure.git
-    dest: "{{ lookup('env', 'HOME') }}/.zsh/pure"
+    dest: "{{ lookup('env', 'HOME') }}/.config/zsh/pure"
