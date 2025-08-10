@@ -4,9 +4,6 @@ fpath+=$HOME/.config/zsh/pure
 
 antigen use oh-my-zsh
 
-# zsh-async is required for the pure theme
-antigen bundle mafredri/zsh-async
-
 antigen bundle git
 antigen bundle command-not-found
 antigen bundle sudo
@@ -39,4 +36,9 @@ alias vim='nvim'
 alias v='nvim'
 alias weather='curl "http://wttr.in/NYC?1F"'
 
-banner Welcome z3nk0
+
+################# NVM #####################
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+banner Gouzenko
