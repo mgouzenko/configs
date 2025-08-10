@@ -22,8 +22,6 @@ config_links:
     dest: ".config/zsh/.zshrc"
   - src: "i3/i3.conf"
     dest: ".config/i3/config"
-  - src: "i3/i3status.conf"
-    dest: ".config/i3/i3status.conf"
   - src: "kitty/kitty.conf"
     dest: ".config/kitty/kitty.conf"
   - src: "kitty/dracula.conf"
