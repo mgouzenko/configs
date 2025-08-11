@@ -6,7 +6,7 @@ chosen=$(
 zenity --question \
   --switch \
   --title="" \
-  --text="Select an exit option:" \
+  --text="Select an exit option. ESC to abort." \
   --extra-button="Log Out" \
   --extra-button="Suspend" \
   --extra-button="Reboot" \

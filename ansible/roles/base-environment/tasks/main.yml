@@ -14,6 +14,20 @@
   become: yes
   become_user: root
 
+- name: Install AWS CLI from snap
+  snap:
+    name: aws-cli
+    classic: yes
+  become: yes
+  become_user: root
+
+- name: Install Terraform from snap
+  snap:
+    name: terraform
+    classic: yes
+  become: yes
+  become_user: root
+
 - name: Create neovim autoload directory
   file:
     path: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload"
