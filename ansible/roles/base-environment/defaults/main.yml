@@ -15,6 +15,16 @@ packages:
   - python3-pip
   - rofi
 
+snap_packages:
+  - name: nvim
+    classic: yes
+  - name: aws-cli
+    classic: yes
+  - name: terraform
+    classic: yes
+  - name: docker
+    classic: no
+
 config_links:
   - src: "nvim/init.vim"
     dest: ".config/nvim/init.vim"

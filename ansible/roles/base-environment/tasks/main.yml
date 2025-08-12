@@ -7,26 +7,13 @@
   become_user: root
   loop: "{{ packages }}"
 
-- name: Install neovim from snap
+- name: Install snap packages
   snap:
-    name: nvim
-    classic: yes
+    name: "{{ item.name }}"
+    classic: "{{ item.classic }}"
   become: yes
   become_user: root
-
-- name: Install AWS CLI from snap
-  snap:
-    name: aws-cli
-    classic: yes
-  become: yes
-  become_user: root
-
-- name: Install Terraform from snap
-  snap:
-    name: terraform
-    classic: yes
-  become: yes
-  become_user: root
+  loop: "{{ snap_packages }}"
 
 - name: Create neovim autoload directory
   file:
